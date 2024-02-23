@@ -421,12 +421,12 @@ digraph UmlDiagram {
   warnings[shape="folder"]  warnings -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
   sympy[shape="folder"]  sympy -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
   abc[shape="folder"]  abc -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
-  RegressionClass -> CovRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
-  RegressionClass -> GaussRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
   ABCClass -> RegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
   RegressionClass -> SimpleRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
+  RegressionClass -> CovRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
+  RegressionClass -> GaussRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
   pickle[shape="folder"]  pickle -> TableClass[arrowhead=vee style=dashed  lhead = cluster6 tailport=s]
   copy[shape="folder"]  copy -> UnitClass[arrowhead=vee style=dashed  lhead = cluster7 tailport=s]
-{rank = same; pickle; warnings; scipy; sympy; copy; typing; abc}
+{rank = same; typing; abc; scipy; sympy; pickle; copy; warnings}
 
 }
