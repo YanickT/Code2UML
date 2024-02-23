@@ -1,5 +1,5 @@
 # Code2UML 
-Converts python code to simple UML diagrams representing the 
+Converts python code to .dot-code for simple UML diagrams representing the 
 classes and their inheritance as well as module dependencies.
 
 ## Example 1
