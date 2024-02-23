@@ -1,0 +1,432 @@
+digraph UmlDiagram {
+  node[shape=record, sytle=filled, fillcolor=gray95]
+  nodesep="0.5"
+  ranksep="5.0"
+  compound=true
+
+  subgraph cluster0{
+    label = <Module: <B>chi_2</B>>
+    labeljust=l
+  Chi2Class [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Chi2</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- reg</td> </tr>
+        <tr> <td port="ss1" align="left" >- residues</td> </tr>
+        <tr> <td port="ss1" align="left" >- chi2</td> </tr>
+        <tr> <td port="ss1" align="left" >- probability</td> </tr>
+        <tr> <td port="ss1" align="left" >- chi_red</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc_residues</td> </tr>
+        <tr> <td port="ss1" align="left" >- show_residues</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster1{
+    label = <Module: <B>controls</B>>
+    labeljust=l
+  controlsFunctions [
+    shape="folder"
+     label= <<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr> <td align="left" >+ functions</td> </tr>
+        <tr> <td port="ss1" align="left" >- type_check</td> </tr>
+        <tr> <td port="ss1" align="left" >- list_type_check</td> </tr>
+        <tr> <td port="ss1" align="left" >- instancemethod</td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster2{
+    label = <Module: <B>data</B>>
+    labeljust=l
+  DataClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Data</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- n</td> </tr>
+        <tr> <td port="ss1" align="left" >- n</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- power</td> </tr>
+        <tr> <td port="ss1" align="left" >- error</td> </tr>
+        <tr> <td port="ss1" align="left" >- value</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- latex</td> </tr>
+        <tr> <td port="ss1" align="left" >- __number_mul</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_mul</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_mul</td> </tr>
+        <tr> <td port="ss1" align="left" >- __mul__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __rmul__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_add</td> </tr>
+        <tr> <td port="ss1" align="left" >- __number_add</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_add</td> </tr>
+        <tr> <td port="ss1" align="left" >- __add__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __radd__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_sub</td> </tr>
+        <tr> <td port="ss1" align="left" >- __number_sub</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_sub</td> </tr>
+        <tr> <td port="ss1" align="left" >- __sub__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __rsub__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __number_div</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_div</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_div</td> </tr>
+        <tr> <td port="ss1" align="left" >- __truediv__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __rtruediv__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __pow__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_lt</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_lt</td> </tr>
+        <tr> <td port="ss1" align="left" >- __lt__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_eq</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_eq</td> </tr>
+        <tr> <td port="ss1" align="left" >- __eq__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __data_gt</td> </tr>
+        <tr> <td port="ss1" align="left" >- __const_gt</td> </tr>
+        <tr> <td port="ss1" align="left" >- __gt__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __ne__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __ge__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __le__</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  ConstClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Const</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- value</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __mul__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __rmul__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __add__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __radd__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __sub__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __rsub__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __truediv__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __rtruediv__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __pow__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __lt__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __le__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __eq__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __ne__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __ge__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __gt__</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster3{
+    label = <Module: <B>data_helper</B>>
+    labeljust=l
+  data_helperFunctions [
+    shape="folder"
+     label= <<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr> <td align="left" >+ functions</td> </tr>
+        <tr> <td port="ss1" align="left" >- digits</td> </tr>
+        <tr> <td port="ss1" align="left" >- round_data</td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster4{
+    label = <Module: <B>formula</B>>
+    labeljust=l
+  FormulaClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Formula</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- formula_string</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __get_units</td> </tr>
+        <tr> <td port="ss1" align="left" >- __create_formula</td> </tr>
+        <tr> <td port="ss1" align="left" >- __create_error_f</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc_result</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc_error</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc_unit</td> </tr>
+        <tr> <td port="ss1" align="left" >- latex</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- show_error</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster5{
+    label = <Module: <B>regression</B>>
+    labeljust=l
+  RegressionClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Regression</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- tab</td> </tr>
+        <tr> <td port="ss1" align="left" >- data_dict</td> </tr>
+        <tr> <td port="ss1" align="left" >- n_o_f_p</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- residues</td> </tr>
+        <tr> <td port="ss1" align="left" >- plot</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  SimpleRegressionClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>SimpleRegression</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- n</td> </tr>
+        <tr> <td port="ss1" align="left" >- a</td> </tr>
+        <tr> <td port="ss1" align="left" >- b</td> </tr>
+        <tr> <td port="ss1" align="left" >- chi2</td> </tr>
+        <tr> <td port="ss1" align="left" >- f</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- residues</td> </tr>
+        <tr> <td port="ss1" align="left" >- plot</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  GaussRegressionClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>GaussRegression</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- a</td> </tr>
+        <tr> <td port="ss1" align="left" >- b</td> </tr>
+        <tr> <td port="ss1" align="left" >- n</td> </tr>
+        <tr> <td port="ss1" align="left" >- chi2</td> </tr>
+        <tr> <td port="ss1" align="left" >- f</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- residues</td> </tr>
+        <tr> <td port="ss1" align="left" >- plot</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  CovRegressionClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>CovRegression</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- formula_string</td> </tr>
+        <tr> <td port="ss1" align="left" >- pars</td> </tr>
+        <tr> <td port="ss1" align="left" >- n</td> </tr>
+        <tr> <td port="ss1" align="left" >- chi2</td> </tr>
+        <tr> <td port="ss1" align="left" >- dummy</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __isvalide</td> </tr>
+        <tr> <td port="ss1" align="left" >- __calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- residues</td> </tr>
+        <tr> <td port="ss1" align="left" >- plot</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster6{
+    label = <Module: <B>table</B>>
+    labeljust=l
+  TableClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Table</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- datas</td> </tr>
+        <tr> <td port="ss1" align="left" >- columns</td> </tr>
+        <tr> <td port="ss1" align="left" >- column_names</td> </tr>
+        <tr> <td port="ss1" align="left" >- units</td> </tr>
+        <tr> <td port="ss1" align="left" >- units</td> </tr>
+        <tr> <td port="ss1" align="left" >- column_names</td> </tr>
+        <tr> <td port="ss1" align="left" >- column_names</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- calc</td> </tr>
+        <tr> <td port="ss1" align="left" >- add</td> </tr>
+        <tr> <td port="ss1" align="left" >- arithmetic_average</td> </tr>
+        <tr> <td port="ss1" align="left" >- geometric_average</td> </tr>
+        <tr> <td port="ss1" align="left" >- harmonic_average</td> </tr>
+        <tr> <td port="ss1" align="left" >- median</td> </tr>
+        <tr> <td port="ss1" align="left" >- modus</td> </tr>
+        <tr> <td port="ss1" align="left" >- max</td> </tr>
+        <tr> <td port="ss1" align="left" >- min</td> </tr>
+        <tr> <td port="ss1" align="left" >- delete</td> </tr>
+        <tr> <td port="ss1" align="left" >- drop</td> </tr>
+        <tr> <td port="ss1" align="left" >- add_column</td> </tr>
+        <tr> <td port="ss1" align="left" >- insert</td> </tr>
+        <tr> <td port="ss1" align="left" >- export</td> </tr>
+        <tr> <td port="ss1" align="left" >- save</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster7{
+    label = <Module: <B>unit</B>>
+    labeljust=l
+  UnitClass [
+  shape=plain
+  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+    <tr> <td> <b>Unit</b> </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ property</td> </tr>
+        <tr> <td port="ss1" align="left" >- numerator</td> </tr>
+        <tr> <td port="ss1" align="left" >- denominator</td> </tr>
+        <tr> <td port="ss1" align="left" >- numerator</td> </tr>
+        <tr> <td port="ss1" align="left" >- denominator</td> </tr>
+      </table>
+    </td> </tr>
+    <tr> <td>
+      <table border="0" cellborder="0" cellspacing="0" >
+        <tr> <td align="left" >+ method</td> </tr>
+        <tr> <td port="ss1" align="left" >- __init__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __str__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __repr__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __mul__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __pow__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __truediv__</td> </tr>
+        <tr> <td port="ss1" align="left" >- __ease</td> </tr>
+        <tr> <td port="ss1" align="left" >- __eq__</td> </tr>
+        <tr> <td port="ss1" align="left" >- flip</td> </tr>
+      </table>
+    </td> </tr>
+  </table>>]
+
+  }
+
+
+  subgraph cluster8{
+    label = <Module: <B>unit_helper</B>>
+    labeljust=l
+  unit_helperFunctions [
+    shape="folder"
+     label= <<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr> <td align="left" >+ functions</td> </tr>
+        <tr> <td port="ss1" align="left" >- unit_control</td> </tr>
+  </table>>]
+
+  }
+
+  scipy[shape="folder"]  scipy -> Chi2Class[arrowhead=vee style=dashed  lhead = cluster0 tailport=s]
+  typing[shape="folder"]  typing -> DataClass[arrowhead=vee style=dashed  lhead = cluster2 tailport=s]
+  sympy[shape="folder"]  sympy -> FormulaClass[arrowhead=vee style=dashed  lhead = cluster4 tailport=s]
+  sympy[shape="folder"]  sympy -> FormulaClass[arrowhead=vee style=dashed  lhead = cluster4 tailport=s]
+  sympy[shape="folder"]  sympy -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
+  warnings[shape="folder"]  warnings -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
+  sympy[shape="folder"]  sympy -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
+  abc[shape="folder"]  abc -> RegressionClass[arrowhead=vee style=dashed  lhead = cluster5 tailport=s]
+  RegressionClass -> CovRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
+  RegressionClass -> GaussRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
+  ABCClass -> RegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
+  RegressionClass -> SimpleRegressionClass[dir=back arrowtail=empty headport=n, tailport=s]
+  pickle[shape="folder"]  pickle -> TableClass[arrowhead=vee style=dashed  lhead = cluster6 tailport=s]
+  copy[shape="folder"]  copy -> UnitClass[arrowhead=vee style=dashed  lhead = cluster7 tailport=s]
+{rank = same; pickle; warnings; scipy; sympy; copy; typing; abc}
+
+}
