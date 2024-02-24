@@ -1,3 +1,4 @@
+from typing import List, Optional, Tuple, Dict
 import os
 import re
 
@@ -10,8 +11,22 @@ FUNCPATTERN = r"\ndef (\w*)\("
 
 
 class Code2UML:
+    """
+    Each subfile will be interpreted as own module
+    Each module will have its own subcluster with name as label
+    Each class will be represented with its attributes and methods as a box in the subcluster
+    All functions will be shown in a single "tab"-shaped object in the subcluster
+    Each dependency will be indicated by a dashed arrow
+    Each inheritance will be indicated by a straight arrow with empty head
+    """
 
-    def __init__(self, path, ownmodule=None, ignore=[]):
+    def __init__(self, path: str, ownmodule: Optional[str] = None, ignore: List[str] = []):
+        """
+        Initializes the Code2UML class
+        :param path: str = path to directory with .py files
+        :param ownmodule: Optional[str] = name of the package (for preventing package.<submodule> import problems)
+        :param ignore: List[str] = list of files/folders to ignore
+        """
         if not os.path.isdir(path):
             raise AttributeError("Path does not lead to a folder!")
         self.path = path
@@ -31,12 +46,6 @@ class Code2UML:
                     self.files.append(f"{self.path}/{path}{file}")
 
         # create structure fore each file
-        """
-        A file with classes only will be represented with this classes as boxes as subcluster
-        A file with functions only will be represented as module
-        A file with functions and classes will be represented module with class included (with arrow)
-        """
-
         self.modules = []
         for file in self.files:
             print(f"File: {file} ", end="")
@@ -58,8 +67,6 @@ class Code2UML:
                 else:
                     imports.append(name)
 
-            # imports = [name.split(".")[-1] if "." in name else name for name in imports]
-
             # extract all classes
             classes, relations = self._extract_classes(text)
 
@@ -70,7 +77,14 @@ class Code2UML:
             self.modules.append((name, imports, classes, functions, relations))
             print("done")
 
-    def _extract_classes(self, text, separator="    "):
+    def _extract_classes(self, text: str, separator: str = "    ") -> Tuple[
+        List[Dict[str: str]], List[Tuple[str, str, str]]]:
+        """
+        Protected! Extract class information from .py-file
+        :param text: str = content of .py-file
+        :param separator: str = separator used for indentation in the .py-file
+        :return: List[Dict[str: str]], List[Tuple[str, str, str]]] = class_information, relationship-information
+        """
         classes = []
         relations = []
         classes_text = re.findall(CLASSPATTERN, text)
@@ -106,7 +120,11 @@ class Code2UML:
             })
         return classes, relations
 
-    def graphviz(self):
+    def graphviz(self) -> str:
+        """
+        Generates .dot representation of the UML structure
+        :return: str = .dot representation of the UML structure
+        """
         graph = "digraph UmlDiagram {\n  node[shape=record, sytle=filled, fillcolor=gray95]\n"
         graph += """  nodesep="0.5"\n  ranksep="5.0"\n  compound=true\n"""
         clusters = {}
@@ -139,18 +157,18 @@ class Code2UML:
                     start, start_i = clusters[dependency]
 
                     # xlabel="dependency"
-                    graph += f"""  {start} -> {end}[arrowhead=vee style=dashed """ +\
+                    graph += f"""  {start} -> {end}[arrowhead=vee style=dashed """ + \
                              f"""ltail = cluster{start_i} lhead = cluster{end_i} tailport=s]\n"""
                 else:
                     graph += f"""  {dependency}[shape="folder"]"""
                     external.append(dependency)
                     # xlabel="dependency"
-                    graph += f"""  {dependency} -> {end}[arrowhead=vee style=dashed  """ +\
+                    graph += f"""  {dependency} -> {end}[arrowhead=vee style=dashed  """ + \
                              f"""lhead = cluster{end_i} tailport=s]\n"""
 
             # add relations between classes
             for start, end, kind in list(set(module[4])):
-                #xlabel="extends"
+                # xlabel="extends"
                 graph += f"""  {start}Class -> {end}Class[dir=back arrowtail=empty headport=n, tailport=s]\n"""
 
         # set external packages to same rank
@@ -158,7 +176,12 @@ class Code2UML:
         graph += "}"
         return graph
 
-    def _graphviz_class(self, c):
+    def _graphviz_class(self, c: Dict[str, str]) -> str:
+        """
+        Generates a .dot representation for a single class
+        :param c: Dict[str, str] = {"name", "attributes", "methods"}
+        :return: .dot representation for class c
+        """
         string = f"""{c['name']}Class [\n"""
         string += """  shape=plain\n  label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">\n"""
 
@@ -189,7 +212,13 @@ class Code2UML:
         string += "  </table>>]\n\n"
         return string
 
-    def _graphviz_functions(self, name, fs):
+    def _graphviz_functions(self, name: str, fs: List[str]) -> str:
+        """
+        Generates a .dot representation for all functions
+        :param name: str = module name
+        :param fs: List[str] = list of function names
+        :return: .dot representation of all functions in module
+        """
         string = f"""{name}Functions [\n"""
         string += """    shape="folder"\n """
         string += """    label= <<table border="0" cellborder="1" cellspacing="0" cellpadding="4">\n"""
@@ -201,7 +230,12 @@ class Code2UML:
         string += "  </table>>]\n\n"
         return string
 
-    def export_dot(self, path):
+    def export_dot(self, path: str):
+        """
+        Generates a .dot representation of the UML diagram and saves it at path
+        :param path: str = path where the file should be saved
+        :return: void
+        """
         with open(f"{path}.dot", "w") as doc:
             doc.write(self.graphviz())
 
