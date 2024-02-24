@@ -1,6 +1,7 @@
 # Code2UML 
 Converts python code to .dot-code for simple UML diagrams representing the 
-classes and their inheritance as well as module dependencies.
+classes and their inheritance as well as module dependencies. An online version of
+graphviz can be found [here](https://dreampuf.github.io/GraphvizOnline) and used to compile the .dot code.
 
 ## Example 1
 As an simple example the Code of the [pyrror module](https://github.com/YanickT/Pyrror) was used.
